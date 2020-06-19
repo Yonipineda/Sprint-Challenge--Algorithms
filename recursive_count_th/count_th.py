@@ -7,4 +7,11 @@ def count_th(word):
     
     # TBC
     
-    pass
+    if len(word) <= 1:
+        return 0
+    front = word[:-1]
+    back = word[-1]
+    if front[-1] + back == 'th':
+        return 1 + count_th(front)
+    else:
+        return count_th(front)

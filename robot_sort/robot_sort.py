@@ -97,7 +97,75 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # First attempt
+        # self.light_is_on() # light on 
+        # while self.light_is_on(): 
+
+        #     while self.can_move_right():
+        #         if self.compare_item() in [1, None]:
+        #             self.swap_item()
+        #         self.move_right()
+        #     if self.compare_item() == 1:
+        #         self.swap_item()
+        #     elif self.compare_item() == None:
+        #         self.set_light_off()
+        #         break 
+
+        #     while self.can_move_left():
+        #         if self.compare_item() == None:
+        #             break
+        #         self.move_left()
+
+        # return self._time
+
+
+    
+        """
+        Sort the robot's list. THIRD ATTEMPT
+        """
+        if self.can_move_right() is False:
+            return self._list
+        
+        self.swap_item()
+        
+        while self.can_move_right() is True:
+            self.move_right()
+
+            if self.compare_item() == 1:
+                self.swap_item()
+        
+        while self.can_move_left() is True:
+            self.move_left()
+
+            if self.compare_item() == None:
+                self.swap_item()
+                break
+        
+        self.move_right()
+
+        self.sort()
+
+
+        # second attempt
+
+     #   while not self.light_is_on():
+     #       self.move_right
+     #       self.swap_item()
+     #       self.move_left() 
+     #       self.insert()
+            
+
+    #def insert(self):
+    #    while self.compare_item() == -1 and self.can_move_left():
+    #        self.move_left()
+    #    if self.compare_item() == -1: 
+    #        self.swap_item() 
+    #    self.bump_right()
+        
+  #  def bump_right(self):
+  #      while self.compare_item() != None:
+  #          self.move_right()
+  #          self.swap_item()
 
 
 if __name__ == "__main__":
@@ -108,5 +176,5 @@ if __name__ == "__main__":
 
     robot = SortingRobot(l)
 
-    robot.sort()
+    print(robot.sort()) 
     print(robot._list)
